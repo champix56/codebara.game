@@ -21,8 +21,9 @@ const tokens = createSlice({
               //(action) => action.type==authUser.fulfilled||action.type==registerUser.fulfilled,
               (action:{type:string}) => action.type.endsWith('fulfilled'),
               (s,a:{type:string,payload:iUserState&ITokensState})=>{
-                if(a.payload.API_REQUEST_TOKEN!==undefined)
+                if(a.payload.API_TOKEN!==undefined)
                 s.API_TOKEN=a.payload.API_TOKEN
+              if(a.payload.API_REQUEST_TOKEN!==undefined)
                 s.API_REQUEST_TOKEN=a.payload.API_REQUEST_TOKEN
                 
                 //  for (const key of Object.keys(s)) {
