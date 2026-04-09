@@ -7,6 +7,7 @@ import { RootState } from "../store/store";
 import Home from "../screens/Home";
 import { Modal } from "react-native";
 import List from "../screens/List";
+import Viewer from "../screens/Viewer";
 
 export type RootStackParamList = {
   Login: undefined;
@@ -15,6 +16,7 @@ export type RootStackParamList = {
   Scan: undefined;
   List: undefined;
   Arena: undefined;
+  Viewer:undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -43,6 +45,11 @@ export default function AppNavigator() {
             <Stack.Screen
               name="List"
               component={List}
+              options={{ headerShown: true }}
+            />
+             <Stack.Screen
+              name="Viewer"
+              component={Viewer}
               options={{ headerShown: true }}
             />
             {/*<Stack.Screen name="Update" component={UpdateScreen} options={{ title: 'Modifier mon compte' }} />
