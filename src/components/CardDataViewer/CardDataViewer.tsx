@@ -12,21 +12,30 @@ import { ICard } from "../../interfaces/card";
 
 type Props = {
   card: ICard;
-  onNameUpdate:(name:string)=>void
+  onNameUpdate: (name: string) => void;
 };
 
 const CardDataViewer: React.FC<Props> = ({ card, onNameUpdate }: Props) => {
-    const [name, setname] = useState(card.name)
+  const [name, setname] = useState(card.name);
   return (
     <View style={styles.container}>
-      <Text>Name :</Text>
-      <View style={styles.hContainer}>
-        <TextInput style={styles.wInput} value={card.name} onChangeText={t=>setname(t)}></TextInput>
-        <Button title="Maj" onPress={()=>{onNameUpdate(name)}}></Button>
-      </View>
       <ScrollView style={styles.scrollView}>
         <View style={styles.card}>
-          <Text style={styles.title}>{card.name}</Text>
+          <Text>mettre a jour le Nom :</Text>
+          <View style={styles.hContainer}>
+            <TextInput
+              style={styles.wInput}
+              value={name}
+              onChangeText={(t) => setname(t)}
+            ></TextInput>
+            <Button
+              title="Maj"
+              onPress={() => {
+                onNameUpdate(name);
+              }}
+            ></Button>
+          </View>
+          <Text style={[styles.title,{textAlign:'center', color:'#FFF'}]}>{name}</Text>
 
           <View style={styles.row}>
             <Text style={styles.label}>❤️ Health:</Text>
@@ -81,11 +90,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   wInput: { flexGrow: 1, borderColor: "grey", borderWidth: 1, marginRight: 5 },
-  scrollView:{
-    flexGrow:1
+  scrollView: {
+    flexGrow: 1,
+    marginBottom:50
   },
   card: {
-    backgroundColor: "#1e1e1e",
+    backgroundColor: "#ACACAC",
     padding: 16,
     borderRadius: 16,
     margin: 10,
@@ -109,10 +119,11 @@ const styles = StyleSheet.create({
   },
   label: {
     fontWeight: "600",
-    color: "#aaa",
+    color: "#FFF",
+    //color: "#4F4F0F",
   },
   specialCard: {
-    backgroundColor: "#2a2a2a",
+    backgroundColor: "#7C7C7C",
     padding: 10,
     borderRadius: 10,
     marginTop: 8,
