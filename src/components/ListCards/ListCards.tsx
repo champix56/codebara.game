@@ -11,6 +11,9 @@ import {
   Dimensions,
 } from 'react-native';
 import { ICard } from '../../interfaces/card';
+import { useDispatch } from 'react-redux';
+import { setCurrentCard } from '../../slices/card';
+import { useNavigation } from 'expo-router';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -26,6 +29,8 @@ interface Props {
 }
 
 export default function ListCards({ data, baseLoc }: Props) {
+   const d=useDispatch()
+    const n=useNavigation()
   const [search, setSearch] = useState('');
   const [columns, setColumns] = useState(2);
 
@@ -46,17 +51,21 @@ export default function ListCards({ data, baseLoc }: Props) {
     setColumns(prev => Math.min(4, prev + 1));
   };
 
-  const renderItem = ({ item }: { item: ICard }) => (
+  const renderItem = ({ item }: { item: ICard }) => {
+    return (
     <TouchableOpacity
       style={[styles.item, { width: itemWidth, height: itemHeight }]}
-      onPress={() => ToastAndroid.show(item.name, ToastAndroid.SHORT)}
+      onPress={() => {
+        d(setCurrentCard(item))
+        n.navigate('Viewer')
+        ToastAndroid.show(item.name, ToastAndroid.SHORT)}}
     >
       <Image source={{ uri: item.fileloc+'front.png' }} style={styles.image} />
       <View style={styles.overlay}>
         <Text style={styles.text}>{item.name}</Text>
       </View>
     </TouchableOpacity>
-  );
+  )};
 
   return (
     <View style={styles.container}>
