@@ -33,8 +33,7 @@ const Home: React.FC = (props: Props) => {
       <Text>{JSON.stringify(tokens)}</Text>
       <Text>{JSON.stringify(user)}</Text>
       <Button title="List" onPress={()=>n.navigate('List')}></Button>
-      <Button title="Viewer" onPress={()=>n.navigate('Viewer')}></Button>
-
+      <Button title="Scan" onPress={()=>n.navigate('Scan')}></Button>
       <Button title="disconnect" onPress={()=>d(setTokens({API_REQUEST_TOKEN:null,API_TOKEN:null}))} color={'orange'}></Button>
       <Button title="forceDeleteDir" onPress={()=>clearRoot()} color={'tomato'}></Button>
     </View>
