@@ -20,7 +20,7 @@ import { getFolderListFiles } from "../tools/fs";
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
-  whitelist: [ "token"],
+  whitelist: [ "token", "card"],
 };
 
 const rootReducer = combineReducers({
