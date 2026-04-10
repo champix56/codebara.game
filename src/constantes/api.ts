@@ -3,7 +3,8 @@ interface IEndpoint{
 }
 
 //export const API_URL = "http://champix.freeboxos.fr:58080";
-export const API_URL='http://0.0.0.0:8080'
+//export const API_URL='http://0.0.0.0:8080'
+export const API_URL='https://curial-vihaan-anyway.ngrok-free.dev'
 interface IUserEndpoints{
     auth:IEndpoint
     register:IEndpoint
