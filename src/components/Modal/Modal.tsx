@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
     marginRight:40,
     backgroundColor:'white',
     borderRadius:10,
-    boxShadow:'10 10 20 GREY'
+    boxShadow:'10 10 20 GREY',
+    paddingHorizontal:20
   },
   imageContainer: { marginTop: -40, justifyContent: "center", flexDirection:'row', marginBottom:20 },
   image: {
